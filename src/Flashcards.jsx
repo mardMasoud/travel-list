@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 const Flashcards = ({ fc }) => {
-    const [sty, setSty] = useState(null);
+    const [sty, setSty] = useState(null); 
 
     function handleClick(id) {
         if (id === sty) setSty(0);
