@@ -1,21 +1,22 @@
 import { useState } from "react";
+import Flashcard from "./Flashcard";
 
 const Flashcards = ({ fc }) => {
-    const [sty, setSty] = useState(null); 
-
-    function handleClick(id) {
-        if (id === sty) setSty(0);
-        else setSty(id);
-    }
+    const [sty, setSty] = useState(null);
     return (
         <div className="flashcards">
             {fc.map((item) => (
-                <div key={item.id}
-                    className={item.id === sty ? "selected" : ""}
-                    onClick={() => handleClick(item.id)}
-                >
-                    <p>{item.id === sty ?item.answer :  item.question}</p>
-                </div>
+                <Flashcard
+                    q={item.question}
+                    a={item.answer}
+                    id={item.id}
+                    key={item.id}
+                    sty={sty}
+                    show={() => {
+                        if (item.id === sty) setSty(0);
+                        else setSty(item.id);
+                    }}
+                />
             ))}
         </div>
     );

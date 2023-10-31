@@ -1,11 +1,10 @@
 import { useState } from "react";
 
-const Flashcard = ({ q, id, a }) => {
-    const [sty, setSty] = useState(null);
+const Flashcard = ({ q, id, a,show,sty }) => {
+
 
     function handleClick(id) {
-        if (id === sty) setSty(0);
-        else setSty(id);
+     show(id)
     }
     return (
         <div className={id === sty ? "selected" : ""} onClick={() => handleClick(id)}>
